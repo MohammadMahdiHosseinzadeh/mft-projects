@@ -187,7 +187,7 @@ def admin_panel():
                 return
             
             check=access_check(uid)
-            if len(check) > 0 :
+            if check:
                 lbl_msg2.configure(text="access level has been already set for this id !!!",fg="red")
                 return
             
