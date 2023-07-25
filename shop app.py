@@ -56,6 +56,8 @@ def submit():
     else:
         user_submit(user,pas)
         lbl_msg.configure(text="submit done!",fg="green")
+        txt_user.delete(0,"end")
+        txt_pass.delete(0,"end")
 
 def logout():
     btn_login.configure(state="active")
