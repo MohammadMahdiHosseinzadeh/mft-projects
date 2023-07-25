@@ -19,7 +19,13 @@ def login():
         session=result
 
         access=access_check(session)
-        if int(access[1])==1 :
+        if not access:
+            btn_submit.configure(state="disabled")
+            btn_shop.configure(state="disabled")
+            btn_admin_panel.configure(state="disabled")
+            lbl_msg2.configure(text="your access level must be determined by the admin !!!",fg="red")
+
+        elif int(access[1])==1 :
             btn_shop.configure(state="disabled")
             btn_admin_panel.configure(state="disabled")
             lbl_msg2.configure(text="your access level is 1 !",fg="blue")
@@ -33,12 +39,6 @@ def login():
             btn_shop.configure(state="active")
             btn_admin_panel.configure(state="active")
             lbl_msg2.configure(text="your access level is 3 [admin level] !",fg="blue")
-
-        else:
-            btn_submit.configure(state="disabled")
-            btn_shop.configure(state="disabled")
-            btn_admin_panel.configure(state="disabled")
-            lbl_msg2.configure(text="your access level must be determined by the admin !!!",fg="red")
 
     else:
         lbl_msg.configure(text="wrong username or password !!!",fg="red")
@@ -64,6 +64,8 @@ def logout():
     btn_logout.configure(state="disabled")
     lbl_msg.configure(text="you are logged out now",fg="blue")
     btn_shop.configure(state="disabled")
+    btn_admin_panel.configure(state="disabled")
+    lbl_msg2.configure(text="")
 
 def shop():
 

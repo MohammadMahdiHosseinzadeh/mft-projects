@@ -12,6 +12,9 @@ def user_login(user,pas):
         return rows[0][0]
 
 def validation(user,pas):
+    if user=="" or pas=="" :
+        return False,"fill the inputs"
+
     if len(pas) < 8 :
         return False,"password length error !!!"
 
