@@ -195,7 +195,7 @@ def admin_panel():
                 lbl_msg2.configure(text="access level has been already set for this id !!!",fg="red")
                 return
             
-            if int(acc) != (1 or 2 or 3) :
+            if not (int(acc)==1 or int(acc)==2 or int(acc)==3) :
                 lbl_msg2.configure(text="access level must be between 1 and 3 !!!",fg="red")
                 return
             
